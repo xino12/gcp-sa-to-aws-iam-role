@@ -31,7 +31,7 @@ using GCP Service Accounts to acquire AWS IAM Role credentials.
 1. Download this repo onto that system:
 
     ```shell
-    curl -L -o gcp-to-aws.zip https://github.com/cevoaustralia/gcp-sa-to-aws-iam-role/archive/master.zip
+    curl -L -o gcp-to-aws.zip https://github.com/xino12/gcp-sa-to-aws-iam-role/archive/master.zip
     ```
 1. Unpack the repo:
     ```shell
