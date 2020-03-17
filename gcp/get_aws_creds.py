@@ -30,7 +30,7 @@ sts = boto3.client('sts')
 res = sts.assume_role_with_web_identity(
         RoleArn=role,
         WebIdentityToken=token,
-        RoleSessionName='example')
+        RoleSessionName='infra-terraform-common')
 
 creds = res['Credentials']
 
@@ -39,6 +39,7 @@ secret = str(creds['SecretAccessKey'])
 token = str(creds['SessionToken'])
 
 output = "[default]\naws_access_key_id=%s\naws_secret_access_key=%s\naws_session_token=%s\n" % (key, secret, token)
+output1 = "[infra-terraform-common]\naws_access_key_id=%s\naws_secret_access_key=%s\naws_session_token=%s\n" % (key, secret, token)
 
 try:
     os.mkdir(path.join(os.getenv('HOME'), '.aws'))
@@ -48,3 +49,5 @@ except:
 with open(path.join(os.getenv('HOME'), '.aws', 'credentials'), 'w') as fp:
         print(output, file=fp)
 
+with open(path.join(os.getenv('HOME'), '.aws', 'credentials'), 'a+') as fp:
+        print(output1, file=fp)
