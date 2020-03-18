@@ -14,7 +14,7 @@ role = sys.argv[1]
 # Set up the URL to request
 SERVICE_ACCOUNT = os.getenv("SERVICE_ACCOUNT", "default")
 BASE_URL = 'http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/'
-AUDIENCE = 'potato'
+AUDIENCE = os.getenv("GCP_AUDIENCE", 'potato')
 FORMAT = 'full'
 METADATA_HEADERS = { 'Metadata-Flavor': 'Google' }
 
