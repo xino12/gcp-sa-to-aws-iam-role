@@ -24,8 +24,6 @@ url = BASE_URL + SERVICE_ACCOUNT + "/identity?audience=" + AUDIENCE + "&format="
 # Get the service token
 r = requests.get(url, headers=METADATA_HEADERS)
 token = r.text
-print(token)
-print(AUDIENCE)
 # Turn the token into AWS credentials
 sts = boto3.client('sts')
 res = sts.assume_role_with_web_identity(
